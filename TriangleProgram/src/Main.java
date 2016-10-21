@@ -9,8 +9,6 @@ import java.util.Scanner;
 
 public class Main {
 
-// static double sideLength; // for recursion
-
     // function to restrict value inputed to only be a double 
 	public static double restrictInputToDouble()
 	{
@@ -28,25 +26,11 @@ public class Main {
 			
 			catch (NumberFormatException e) {
 				
-				System.err.println("Invalid input. Please enter integer.");
+				System.err.println("Invalid Input!");
 		    
 			}
 		}
 		return sideLength;
-		/*
-		if (scan.hasNextDouble())
-		{		
-	        sideLength = scan.nextDouble();	
-		}
-		else
-		{
-			System.out.println("ERROR! NOT A NUMBER!");
-			System.out.println();
-			restrictInputToDouble(sideNumber);
-		}
-        return sideLength;
-        */
-		
 	}
 	
 	

@@ -14,7 +14,7 @@ public class Triangle {
 	private double _length2;
 	private double _length3;
 	private double _semiPerimeter;
-	private double _circumference;	
+	private double _circumcentreArea;	
 	private String _height;
 	private String _name;
 	
@@ -83,12 +83,14 @@ public class Triangle {
 		return radius;
 	}
 	
-	// determines & returns the area of the circumerence of the triangle
-	public double getCircumference()
+	// determines & returns the area of the circumcircle of the triangle
+	public double getCircumcircleArea()
 	{
 		double radius;
-		radius = (this.getArea()/this.getSemiPerimeter());
-		return radius;
+		radius = (this.getLength1() * this.getLength2() * this.getLength3()) / (4 * this.getSemiPerimeter());
+		this._circumcentreArea = Math.PI * (Math.pow(radius, 2));
+		
+		return this._circumcentreArea;
 	}
 	
 	// string b/c there is more than 1 possible height
@@ -131,9 +133,9 @@ public class Triangle {
 	{
 		System.out.println("Length 1 = " + this.getLength1() + ", Length 2 = " + this.getLength2() + 
 				", Length 3 = " + this.getLength3() + ", Semiperimeter = " + this.getSemiPerimeter() +
-				", Area = " + this.getArea() + ", Radius = " + this.getRadius() + ", Type = " + this.getName());		
+				", Area = " + this.getArea() + ", Radius = " + this.getRadius() + ", Type = " + this.getName() 
+				+ ", Area of Circumcircle = " + this.getCircumcircleArea());		
 		System.out.println("Height: " + this.getHeight());		
 		System.out.println();
 	}
-	
 }
