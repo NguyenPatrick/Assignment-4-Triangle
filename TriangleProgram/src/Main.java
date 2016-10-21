@@ -9,56 +9,77 @@ import java.util.Scanner;
 
 public class Main {
 
-	
-	public static void restrictInputToDouble()
+// static double sideLength; // for recursion
+
+    // function to restrict value inputed to only be a double 
+	public static double restrictInputToDouble()
 	{
+		Scanner scan = new Scanner(System.in);
+	
+		boolean isValid = false;
+		double sideLength = 0;
+		
+		// process
+		while(isValid == false){
+			try {
+				sideLength = Double.parseDouble(scan.nextLine());
+				isValid = true;		
+			} 
+			
+			catch (NumberFormatException e) {
+				
+				System.err.println("Invalid input. Please enter integer.");
+		    
+			}
+		}
+		return sideLength;
+		/*
+		if (scan.hasNextDouble())
+		{		
+	        sideLength = scan.nextDouble();	
+		}
+		else
+		{
+			System.out.println("ERROR! NOT A NUMBER!");
+			System.out.println();
+			restrictInputToDouble(sideNumber);
+		}
+        return sideLength;
+        */
 		
 	}
 	
+	
 	public static void main (String args[])
-	{
-		Scanner scan = new Scanner(System.in);
-		  
-		double side1 = 0;
-		double side2 = 0;
-		double side3 = 0;
-
-		System.out.println("Enter the first side");
-		if (scan.hasNextDouble())
-		{			
-			side1 = scan.nextInt();
-		}
-		else
-		{
-			System.out.println("NOT A DOUBLE!");
-		}
-		if (scan.hasNextDouble())
-		{
-			
-			side2 = scan.nextInt();
-		}
-		else
-		{
-			System.out.println("NOT A DOUBLE!");
-		}
-			
-		if (scan.hasNextDouble())
-		{			
-			side3 = scan.nextInt();
-		}
-		else
-		{
-			System.out.println("NOT A DOUBLE!");
-		}
-			
-		System.out.println(side1 + side2 + side3);
-			
+	{	  
+		// variables
+		double side1;
+		double side2;
+		double side3;
 		
-		Triangle Triangle1 = new Triangle(side1, side2, side3);
+		while (true)
+		{
+			// goes to recursion procedure
+			System.out.println("Enter the Value For Side #1");
+			side1 = restrictInputToDouble();
+			System.out.println("Enter the Value For Side #2");
+			side2 = restrictInputToDouble();
+			System.out.println("Enter the Value For Side #3");
+			side3 = restrictInputToDouble();
 
-		System.out.println("Length 1 = " + Triangle1.getLength1() + " Length 2 = " + Triangle1.getLength2() + 
-				" Length 3 = " + Triangle1.getLength3() + " Semiperimeter = " + Triangle1.getSemiPerimeter() +
-				" Area = " + Triangle1.getArea() + " Radius = " + Triangle1.getRadius() + " Type = " + Triangle1.getName());
+			Triangle Triangle1 = new Triangle(side1, side2, side3);
+
+			if (Triangle1.isValid().equals(true))
+			{
+				// users can manually display properties if they wish, but 
+				// showing all properties makes it alot easier to show info
+				Triangle1.showProperties();
+			}
+			else
+			{
+				System.out.println("TRIANGLE IS NOT VALID");
+			}
+		}
 		
 	}
 }
