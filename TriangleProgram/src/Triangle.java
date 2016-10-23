@@ -2,7 +2,7 @@
 *
 * Created by: Patrick Nguyen
 * Created on: October 2016
-* This Program Sorts Uses the Vehicle Class For Testing
+* This Class Calculates And Displays Properties of a Triangle
 *
 ****************************************************************************/
 import java.math.*;
@@ -111,7 +111,7 @@ public class Triangle {
 	
     // function that checks to see if any two sides add up together & is greater than the third side
 	// if yes, it is a triangle & if no, it is not a triangle
-	public Boolean isValid()
+	protected Boolean isValid()
 	{
 		Boolean validState;
 		
