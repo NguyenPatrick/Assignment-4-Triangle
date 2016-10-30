@@ -2,7 +2,7 @@
 *
 * Created by: Patrick Nguyen
 * Created on: October 2016
-* This Program Sorts Uses the Vehicle Class For Testing
+* This Program Uses The Triangle Class To Determine Properties Of A Triangle
 *
 ****************************************************************************/
 import java.util.Scanner;
@@ -24,10 +24,10 @@ public class Main {
 				isValid = true;		
 			} 
 			
-			catch (NumberFormatException e) {
+			catch (NumberFormatException e) 
+			{
 				
-				System.err.println("Invalid Input!");
-		    
+				System.err.println("Invalid Input!");		    
 			}
 		}
 		return sideLength;
@@ -62,6 +62,7 @@ public class Main {
 			else
 			{
 				System.out.println("TRIANGLE IS NOT VALID");
+				System.out.println();
 			}
 		}
 		
